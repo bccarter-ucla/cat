@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">    
+</head>
+<body>
+<h1> A Virtual Safe Space for the Homesick </h1>
+<h4> I created this space as a way to process my longing to be home, in Fairfield and Los Angeles. 
+    I long to be home, even though being home can be confusing. I wish anywhere could feel like home,
+    but that's probably not the point. Being home makes me feel connected to places, people, animals,
+    and organisms, like reeds and birds. Home is made up of multiple components that wind together like
+    a hammock, to cradle and support you. I hope this space provides a loving respite to those experiencing homesickness. </h4>
+
+</body>
+
+    <body> 
+    <figure>
+        <img src="https://s.hdnux.com/photos/04/13/61/1096792/6/1200x0.jpg" alt= "The marshland of Fairfield County, CT.">
+    <figcaption> The marshland of Fairfield County, CT. </figcaption>
+    </figure>
+    </body>
+
+<body>
+    <figure>
+        <img src="https://mithun.com/wp-content/uploads/2023/07/D05859_02_N25-1.jpg" alt= "My apartment buidling in Los Angeles, CA.">
+    <figcaption> My apartment buidling in Los Angeles, CA. </figcaption>
+    </figure>   
+</body>
+
+<body>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6KWgA6JYdy9aWzwRlDSeo7?utm_source=generator" width="50%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</body>
+
+<body>
+<h4> Note on website elements: Using html and CSS, I changed the background, font sizes and colors, added captioned images, and embedded a Spotify link.</h4>
+
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cat Images</title>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        // Function to fetch random cat images from the CatAPI
+        function fetchCatImages() {
+            // Number of random images to fetch
+            var numberOfImages = 5;
+
+            // URL of the CatAPI endpoint for random images
+            var apiUrl = "https://api.thecatapi.com/v1/images/search?limit=" + numberOfImages;
+
+            // Make a fetch request to the CatAPI
+            fetch(apiUrl)
+                .then(response => response.json()) // Parse the JSON response
+                .then(data => {
+                    // Iterate over the array of image objects and display each image
+                    data.forEach(cat => {
+                        var img = document.createElement("img");
+                        img.src = cat.url;
+                        document.getElementById("cat-images").appendChild(img);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching cat images:', error);
+                    document.getElementById("cat-images").innerHTML = "Error fetching cat images.";
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Random Cat Images</h1>
+    <button onclick="fetchCatImages()">Fetch Cat Images</button>
+    <div id="cat-images"></div>
+</body>
+</html>
